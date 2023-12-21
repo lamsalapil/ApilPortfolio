@@ -1,0 +1,127 @@
+﻿@model ApilPortfolio.Models.AdminModels.LoginModel
+@{
+    Layout = null;
+}
+@*
+@{
+    try
+    {
+        if(TempData["msg"]!= null)
+        {
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <strong class="mr-auto">UnSucess Access</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            <div class="toast-body" style="color:red;">
+            @TempData["msg"]
+            </div>
+            </div>
+        }
+        else
+        {
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <strong class="mr-auto">Sucess Access</strong>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="toast-body" style="color:forestgreen;">
+                    @TempData["success"]
+                </div>
+            </div>
+        }
+    }
+    catch
+    {
+        
+    }
+
+}*@
+
+
+<body>
+    <div class="container">
+        <div class="row">
+           
+            <div class="login-form">
+                
+                <form asp-action="Login">
+                    <h2>Admin Login</h2>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Password" class="control-label"></label>
+                        <input asp-for="Password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Login" class="button" />
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+<style>
+   
+
+    .login-form {
+        background-color: #ffffff;
+        height: 100%;
+        justify-content: center;
+    }
+
+        .login-form form{
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 100px 500px;
+            text-align: center;
+            padding: 20px;
+
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+    .form-group {
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group .button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+</style>

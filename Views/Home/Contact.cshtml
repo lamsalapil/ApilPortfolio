@@ -1,0 +1,79 @@
+﻿@model ApilPortfolio.Models.Contact
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+
+
+
+<div class="row" id="Contact">
+
+    <h1 class="justify-content-center" style="margin-bottom:50px;">Contact Me</h1>
+   
+    <div class="col-md-6">
+        <h2> Phone number:</h2>
+        <p>9800001000</p>
+        <br />
+        <h2> Email:</h2>
+        <p>myportfolio@gmail.com</p>
+    </div>
+    <div class="col-md-4">
+        
+        <a> @ViewBag.Massage</a>
+        <form asp-action="Contact" class="contactform" style="margin: 0, 50px;">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Massages" class="control-label"></label>
+                <textarea asp-for="Massages" class="form-control" rows="5" cols="50"></textarea>
+                <span asp-validation-for="Massages" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Send" class="btn btn-success">
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2"></div>
+   
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<style>
+    #Contact{
+        height: 100%;
+        padding-top: 5%;
+        padding-bottom: 50px;
+        color: black;
+       
+        text-align: center;
+        justify-content: left;
+    }
+   .contactform{
+       
+       text-align:center;
+       justify-content: center;
+   }
+   .contactform form-group{
+       padding: 10px;
+   }
+
+
+        .contactform div label{
+            font-weight:bold;
+        }
+</style>
